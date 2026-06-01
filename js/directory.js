@@ -94,12 +94,16 @@
       ? '<div class="t-row" style="margin-top:.3rem"><span class="tag note">ℹ ' + t.note + '</span></div>'
       : '';
 
+    var nameHTML = t.website
+      ? '<a href="' + t.website + '" target="_blank" rel="noopener">' + fullName(t) + '</a>'
+      : fullName(t);
+
     return '' +
       '<article class="t-card">' +
         '<div class="t-card-top">' +
           '<div class="t-avatar" aria-hidden="true">' + initials(t.name) + '</div>' +
           '<div>' +
-            '<h3 class="t-name">' + fullName(t) + '</h3>' +
+            '<h3 class="t-name">' + nameHTML + '</h3>' +
             (t.address ? '<div class="t-address">' + (t.bezirk || '') + '</div>' :
                          '<div class="t-address">Kontakt online</div>') +
           '</div>' +
