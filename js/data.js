@@ -140,6 +140,17 @@ const THERAPISTS = [
     note: ""
   },
   {
+    name: "Vincenz Freund", title: "", suffix: "",
+    plz: "1140", bezirk: "Penzing",
+    address: "Penzinger Straße 67/6", addressNote: "",
+    phone: "+43 677 63996003",
+    email: "praxis@freund-psychotherapie.at",
+    website: "https://freund-psychotherapie.at",
+    languages: ["Deutsch"],
+    specializations: ["Angst", "Depression", "Burnout", "Psychosomatik", "Lebenskrisen"],
+    note: "in Ausbildung unter Supervision"
+  },
+  {
     name: "Maximilian Veith", title: "", suffix: "",
     plz: "1150", bezirk: "Rudolfsheim-Fünfhaus",
     address: "Holochergasse 49/8", addressNote: "",
