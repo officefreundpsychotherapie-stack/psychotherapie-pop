@@ -41,6 +41,7 @@ const THERAPISTS = [
     website: "https://www.psychotherapie-greber.at/",
     languages: ["Deutsch", "Englisch"],
     specializations: [],
+    status: "in Fachausbildung unter Lehrsupervision",
     note: "ab November 2026"
   },
   {
@@ -52,6 +53,7 @@ const THERAPISTS = [
     website: "https://www.carlozichittella.at",
     languages: ["Deutsch", "Italienisch (Muttersprache)", "Englisch", "Französisch (passiv)"],
     specializations: [],
+    status: "in Fachausbildung unter Lehrsupervision",
     note: ""
   },
 
@@ -65,6 +67,7 @@ const THERAPISTS = [
     website: "https://www.praterpraxis.at",
     languages: [],
     specializations: [],
+    status: "in Fachausbildung unter Lehrsupervision",
     note: ""
   },
   {
@@ -76,7 +79,8 @@ const THERAPISTS = [
     website: "",
     languages: ["Deutsch"],
     specializations: [],
-    note: "Psychoanalytikerin (WAP) in Fachausbildung unter Lehrsupervision"
+    status: "Psychoanalytikerin (WAP) in Fachausbildung unter Lehrsupervision",
+    note: ""
   },
 
   // ---- 1030 Landstraße ----
@@ -89,6 +93,7 @@ const THERAPISTS = [
     website: "https://www.psychotherapie-seibold.at/",
     languages: ["Deutsch"],
     specializations: [],
+    status: "in Fachausbildung unter Lehrsupervision",
     note: ""
   },
 
@@ -102,6 +107,7 @@ const THERAPISTS = [
     website: "",
     languages: ["Deutsch", "Polnisch (passiv)"],
     specializations: [],
+    status: "in Fachausbildung unter Lehrsupervision",
     note: ""
   },
 
@@ -115,6 +121,7 @@ const THERAPISTS = [
     website: "https://www.rosa-eidelpes.at",
     languages: ["Deutsch", "Englisch"],
     specializations: [],
+    status: "in Fachausbildung unter Lehrsupervision",
     note: ""
   },
   {
@@ -126,6 +133,7 @@ const THERAPISTS = [
     website: "https://www.isabellekoehler.com",
     languages: ["Deutsch", "Englisch"],
     specializations: [],
+    status: "in Fachausbildung unter Lehrsupervision",
     note: ""
   },
   {
@@ -137,6 +145,7 @@ const THERAPISTS = [
     website: "",
     languages: [],
     specializations: [],
+    status: "in Fachausbildung unter Lehrsupervision",
     note: ""
   },
   {
@@ -148,6 +157,7 @@ const THERAPISTS = [
     website: "https://www.paultiefenboeck.at",
     languages: ["Deutsch", "Englisch"],
     specializations: [],
+    status: "in Fachausbildung unter Lehrsupervision",
     note: ""
   },
 
@@ -161,6 +171,7 @@ const THERAPISTS = [
     website: "",
     languages: ["Deutsch", "Arabisch"],
     specializations: [],
+    status: "in Fachausbildung unter Lehrsupervision",
     note: "ab 1. Oktober 2026"
   },
   {
@@ -185,6 +196,7 @@ const THERAPISTS = [
     website: "https://www.psychotherapie-lehrner.at",
     languages: ["Deutsch", "Englisch"],
     specializations: [],
+    status: "in Fachausbildung unter Lehrsupervision",
     note: ""
   },
   {
@@ -196,6 +208,7 @@ const THERAPISTS = [
     website: "https://www.psychotherapie-wesely.at",
     languages: ["Deutsch", "Englisch"],
     specializations: [],
+    status: "in Fachausbildung unter Lehrsupervision",
     note: ""
   },
 
@@ -209,6 +222,7 @@ const THERAPISTS = [
     website: "https://www.diepsychotherapeutin-wien.com",
     languages: ["Deutsch"],
     specializations: [],
+    status: "in Fachausbildung unter Lehrsupervision",
     note: ""
   },
 
@@ -222,6 +236,7 @@ const THERAPISTS = [
     website: "https://www.clementinebenard.com",
     languages: ["Deutsch", "Französisch", "Englisch"],
     specializations: [],
+    status: "in Fachausbildung unter Lehrsupervision",
     note: ""
   },
   {
@@ -233,6 +248,7 @@ const THERAPISTS = [
     website: "https://www.psychotherapie-halper.at",
     languages: ["Deutsch"],
     specializations: [],
+    status: "in Fachausbildung unter Lehrsupervision",
     note: ""
   },
   {
@@ -257,6 +273,7 @@ const THERAPISTS = [
     website: "https://www.praxis-kubacek.at",
     languages: ["Deutsch"],
     specializations: [],
+    status: "in Fachausbildung unter Lehrsupervision",
     note: ""
   },
 
@@ -270,6 +287,7 @@ const THERAPISTS = [
     website: "",
     languages: [],
     specializations: [],
+    status: "in Fachausbildung unter Lehrsupervision",
     note: ""
   },
   {
@@ -281,6 +299,7 @@ const THERAPISTS = [
     website: "https://www.psychotherapie-pollhammer.at/",
     languages: [],
     specializations: [],
+    status: "in Fachausbildung unter Lehrsupervision",
     note: ""
   },
   {
@@ -292,7 +311,7 @@ const THERAPISTS = [
     website: "https://freund-psychotherapie.at",
     languages: ["Deutsch"],
     specializations: [],
-    note: "in Fachausbildung unter Lehrsupervision"
+    note: ""
   },
 
   // ---- 1150 Rudolfsheim-Fünfhaus ----
@@ -305,6 +324,7 @@ const THERAPISTS = [
     website: "https://www.psychotherapie1150.at",
     languages: [],
     specializations: [],
+    status: "in Fachausbildung unter Supervision",
     note: ""
   },
   {
@@ -316,6 +336,7 @@ const THERAPISTS = [
     website: "https://www.psychotherapeutische-praxis-veith.at",
     languages: ["Deutsch"],
     specializations: ["Erwachsene", "Jugendliche"],
+    status: "in Fachausbildung unter Lehrsupervision",
     note: ""
   },
 
@@ -353,6 +374,7 @@ const THERAPISTS = [
     website: "https://www.psychotherapie-meinhardt.at",
     languages: [],
     specializations: ["Jugendliche ab 14 Jahren", "Erwachsene allen Alters"],
+    status: "in Fachausbildung unter Lehrsupervision",
     note: ""
   },
   {
@@ -364,6 +386,7 @@ const THERAPISTS = [
     website: "https://www.psychotherapie-theuer.at",
     languages: ["Deutsch"],
     specializations: [],
+    status: "in Fachausbildung unter Lehrsupervision",
     note: ""
   },
 
@@ -377,6 +400,7 @@ const THERAPISTS = [
     website: "",
     languages: ["Deutsch", "Englisch"],
     specializations: [],
+    status: "in Fachausbildung unter Lehrsupervision",
     note: ""
   },
 
@@ -390,6 +414,7 @@ const THERAPISTS = [
     website: "https://www.hanna-habitzl.at",
     languages: ["Deutsch"],
     specializations: ["Kinder- und Jugendtherapie", "Eltern-Säugling/Kleinkind-Kurztherapien"],
+    status: "in Fachausbildung unter Lehrsupervision",
     note: ""
   },
 

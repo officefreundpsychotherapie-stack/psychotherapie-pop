@@ -121,6 +121,10 @@
       ? '<a href="' + t.website + '" target="_blank" rel="noopener">' + fullName(t) + '</a>'
       : fullName(t);
 
+    var statusHTML = t.status
+      ? '<div class="t-status">' + t.status + '</div>'
+      : '';
+
     return '' +
       '<article class="t-card">' +
         '<div class="t-card-top">' +
@@ -129,6 +133,7 @@
             '<h3 class="t-name">' + nameHTML + '</h3>' +
             (t.address ? '<div class="t-address">' + (t.bezirk || '') + '</div>' :
                          '<div class="t-address">Kontakt online</div>') +
+            statusHTML +
           '</div>' +
         '</div>' +
         '<div class="t-meta">' + (rows.join('') || '<div class="t-row" style="color:var(--muted)">Kontaktdaten folgen</div>') + noteHTML + '</div>' +
@@ -176,7 +181,7 @@
       if (!matchDistrict) return false;
       if (!q) return true;
       const hay = [
-        t.name, t.title, t.suffix, t.bezirk, t.plz, t.address,
+        t.name, t.title, t.suffix, t.bezirk, t.plz, t.address, t.status,
         (t.languages || []).join(' '),
         (t.specializations || []).join(' ')
       ].join(' ').toLowerCase();
