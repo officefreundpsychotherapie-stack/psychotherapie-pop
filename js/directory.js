@@ -42,16 +42,39 @@
     web:  '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M2 12h20"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10Z"/></svg>'
   };
 
+  /* ---------- Zufalls-Reihenfolge (Fisher-Yates) ---------- */
+  function shuffle(arr) {
+    var a = arr.slice();
+    for (var i = a.length - 1; i > 0; i--) {
+      var j = Math.floor(Math.random() * (i + 1));
+      var tmp = a[i]; a[i] = a[j]; a[j] = tmp;
+    }
+    return a;
+  }
+
   /* ---------- Gruppieren nach Bezirk ---------- */
-  function buildGroups(list) {
+  // random=true: Bezirke UND Personen je Bezirk zufällig (für die Anzeige)
+  // random=false: nach PLZ aufsteigend sortiert (für die Filter-Chips)
+  function buildGroups(list, random) {
     const map = {};
     list.forEach(function (t) {
       const key = t.plz || '____';
       if (!map[key]) map[key] = { plz: t.plz, bezirk: t.bezirk, items: [] };
       map[key].items.push(t);
     });
-    // sortiere: PLZ aufsteigend, "ohne" ganz ans Ende
-    return Object.values(map).sort(function (a, b) {
+    var groups = Object.values(map);
+
+    if (random) {
+      // Personen innerhalb jedes Bezirks mischen
+      groups.forEach(function (g) { g.items = shuffle(g.items); });
+      // "Ohne Praxisadresse" (kein plz) immer ans Ende, Rest mischen
+      var withPlz = shuffle(groups.filter(function (g) { return g.plz; }));
+      var without = groups.filter(function (g) { return !g.plz; });
+      return withPlz.concat(without);
+    }
+
+    // sortiert: PLZ aufsteigend, "ohne" ganz ans Ende (für Chips)
+    return groups.sort(function (a, b) {
       if (!a.plz) return 1;
       if (!b.plz) return -1;
       return a.plz.localeCompare(b.plz);
@@ -115,7 +138,7 @@
 
   /* ---------- Gruppen rendern ---------- */
   function render(list) {
-    const groups = buildGroups(list);
+    const groups = buildGroups(list, true);
     let total = 0;
     let html = '';
 
