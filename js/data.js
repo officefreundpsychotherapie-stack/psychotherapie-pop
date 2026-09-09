@@ -357,7 +357,7 @@ const THERAPISTS = [
     website: "https://freund-psychotherapie.at",
     languages: ["Deutsch"],
     specializations: [],
-    note: AUSBILDUNG
+    note: ""
   },
   {
     name: "Stefanie Pichler-Gnilsen", title: "", suffix: "MA",
