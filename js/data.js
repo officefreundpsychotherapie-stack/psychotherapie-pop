@@ -145,6 +145,17 @@ const THERAPISTS = [
     specializations: [],
     note: AUSBILDUNG
   },
+  {
+    name: "Valerie Wiener", title: "Mag.a", suffix: "",
+    plz: "1030", bezirk: "Landstraße",
+    address: "Reisnerstraße 5/1/20B", addressNote: "",
+    phone: "+43 664 75140442",
+    email: "praxis.wiener@outlook.com",
+    website: "https://www.psychotherapie-wiener.com",
+    languages: [],
+    specializations: [],
+    note: "Klinische Psychologin, " + AUSBILDUNG
+  },
 
   // ---- 1040 Wieden ----
   {
@@ -317,17 +328,6 @@ const THERAPISTS = [
     address: "Säulengasse 10/5", addressNote: "",
     phone: "+43 677 63505355",
     email: "psy.seeboeck@gmx.net",
-    website: "",
-    languages: [],
-    specializations: [],
-    note: ""
-  },
-  {
-    name: "Valerie Wiener", title: "Mag.a", suffix: "",
-    plz: "1090", bezirk: "Alsergrund",
-    address: "Rufgasse 5/28", addressNote: "",
-    phone: "0699 17009008",
-    email: "valerie.wiener@gmx.at",
     website: "",
     languages: [],
     specializations: [],
