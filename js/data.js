@@ -360,6 +360,17 @@ const THERAPISTS = [
     note: ""
   },
   {
+    name: "Nadine Lampersberger", title: "Mag.", suffix: "",
+    plz: "1140", bezirk: "Penzing",
+    address: "Penzinger Straße 40/5", addressNote: "",
+    phone: "0676 5553568",
+    email: "praxis.lampersberger@posteo.at",
+    website: "https://www.praxislampersberger.at/",
+    languages: ["Deutsch", "Englisch"],
+    specializations: [],
+    note: AUSBILDUNG
+  },
+  {
     name: "Stefanie Pichler-Gnilsen", title: "", suffix: "MA",
     plz: "1140", bezirk: "Penzing",
     address: "Breitenseer Straße 20–22/12", addressNote: "",
@@ -416,17 +427,6 @@ const THERAPISTS = [
     website: "",
     languages: ["Deutsch", "Englisch"],
     specializations: ["Persönlichkeitsstörungen", "Essstörungen", "Psychosomatik"],
-    note: ""
-  },
-  {
-    name: "Katharina Stahr-Yolcu", title: "Mag.", suffix: "PhD",
-    plz: "1160", bezirk: "Ottakring",
-    address: "Haberlgasse 34/3", addressNote: "",
-    phone: "+43 676 540 4974",
-    email: "therapie-stahr@proton.me",
-    website: "https://therapie-stahr.at",
-    languages: ["Deutsch"],
-    specializations: ["Junge Erwachsene", "LGBTQ+"],
     note: ""
   },
 
