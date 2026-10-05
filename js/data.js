@@ -334,6 +334,19 @@ const THERAPISTS = [
     note: ""
   },
 
+  // ---- 1100 Favoriten ----
+  {
+    name: "Alexander Haselgruber", title: "Dr.", suffix: "MSc",
+    plz: "1100", bezirk: "Favoriten",
+    address: "Knöllgasse 32/3", addressNote: "",
+    phone: "+43 681 81 69 47 83",
+    email: "praxis@alexander-haselgruber.at",
+    website: "https://www.alexander-haselgruber.at",
+    languages: ["Deutsch", "Englisch"],
+    specializations: [],
+    note: AUSBILDUNG
+  },
+
   // ---- 1130 Hietzing ----
   {
     name: "Martina Kubacek", title: "Mag.", suffix: "",
