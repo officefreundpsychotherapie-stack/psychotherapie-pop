@@ -183,6 +183,17 @@ const THERAPISTS = [
 
   // ---- 1050 Margareten ----
   {
+    name: "Kim Busch", title: "", suffix: "MA",
+    plz: "1050", bezirk: "Margareten",
+    address: "Kohlgasse 42/3", addressNote: "",
+    phone: "0676 626 0894",
+    email: "busch@therapie-fokus.at",
+    website: "https://therapie-fokus.at",
+    languages: ["Deutsch", "Englisch", "Spanisch"],
+    specializations: [],
+    note: AUSBILDUNG
+  },
+  {
     name: "Rosa Eidelpes", title: "Dr.", suffix: "",
     plz: "1050", bezirk: "Margareten",
     address: "Embelgasse 38–40/13", addressNote: "",
@@ -501,6 +512,19 @@ const THERAPISTS = [
     website: "https://www.hanna-habitzl.at",
     languages: ["Deutsch"],
     specializations: ["Kinder- und Jugendtherapie", "Eltern-Säugling/Kleinkind-Kurztherapien"],
+    note: AUSBILDUNG
+  },
+
+  // ---- 2340 Maria Enzersdorf (Niederösterreich) ----
+  {
+    name: "Katharina Stachurski", title: "", suffix: "BSc MA",
+    plz: "2340", bezirk: "Maria Enzersdorf",
+    address: "Grenzgasse 111/9/4", addressNote: "Gelände St. Gabriel, an der Grenze zu Mödling",
+    phone: "0670 60 17 335",
+    email: "katharina@psychotherapie-stachurski.at",
+    website: "https://www.psychotherapie-stachurski.at",
+    languages: [],
+    specializations: [],
     note: AUSBILDUNG
   },
 
