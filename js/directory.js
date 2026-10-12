@@ -86,9 +86,9 @@
     const rows = [];
     if (t.address) {
       const addr = t.address + (t.addressNote ? ' · ' + t.addressNote : '') +
-                   (t.plz ? ', ' + t.plz + ' Wien' : '');
+                   (t.plz ? ', ' + t.plz + ' ' + (t.ort || 'Wien') : '');
       const maps = 'https://www.google.com/maps/search/?api=1&query=' +
-                   encodeURIComponent(t.address + ', ' + t.plz + ' Wien');
+                   encodeURIComponent(t.address + ', ' + t.plz + ' ' + (t.ort || 'Wien'));
       rows.push('<div class="t-row">' + IC.pin +
         '<a href="' + maps + '" target="_blank" rel="noopener">' + addr + '</a></div>');
     }
@@ -231,7 +231,7 @@
           "@type": "PostalAddress",
           "streetAddress": t.address,
           "postalCode": t.plz,
-          "addressLocality": "Wien",
+          "addressLocality": t.ort || "Wien",
           "addressCountry": "AT"
         };
       }

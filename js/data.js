@@ -10,6 +10,7 @@
         suffix    : nachgestellt, z. B. "BA MA", "MA" (oder "")
         plz        : Postleitzahl als Text, z. B. "1010"  -> bestimmt den Bezirk
         bezirk     : Bezirksname, z. B. "Innere Stadt"
+        ort        : Ortsname, nur wenn NICHT Wien (z. B. "Maria Enzersdorf")
         address    : Straße + Hausnummer (oder "" wenn nur online)
         addressNote: Zusatz zur Adresse, z. B. "Praxis am Kutschkermarkt" (oder "")
         phone      : Telefonnummer (oder "")
@@ -519,6 +520,7 @@ const THERAPISTS = [
   {
     name: "Katharina Stachurski", title: "", suffix: "BSc MA",
     plz: "2340", bezirk: "Maria Enzersdorf",
+    ort: "Maria Enzersdorf",
     address: "Grenzgasse 111/9/4", addressNote: "Gelände St. Gabriel, an der Grenze zu Mödling",
     phone: "0670 60 17 335",
     email: "katharina@psychotherapie-stachurski.at",
