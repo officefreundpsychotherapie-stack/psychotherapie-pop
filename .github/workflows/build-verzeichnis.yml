@@ -1,0 +1,46 @@
+# Erzeugt das Verzeichnis neu, sobald js/data.js (oder der Generator) geändert wird,
+# und schreibt verzeichnis.html und index.html zurück ins Repository.
+name: Verzeichnis erzeugen
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - "js/data.js"
+      - "js/directory.js"
+      - "tools/build-verzeichnis.js"
+      - "verzeichnis.html"
+      - "index.html"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: build-verzeichnis
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+
+      - name: Verzeichnis erzeugen
+        run: node tools/build-verzeichnis.js
+
+      - name: Änderungen zurückschreiben
+        run: |
+          if git diff --quiet; then
+            echo "Keine Änderungen nötig."
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add verzeichnis.html index.html
+          git commit -m "Verzeichnis aus data.js neu erzeugt"
+          git push

@@ -1,18 +1,14 @@
 /* directory.js — rendert das Therapeut*innen-Verzeichnis nach Bezirken,
    inkl. Suche, Bezirksfilter und Schema.org-Daten für SEO.
-   Benötigt: js/data.js (THERAPISTS, LIST_DATE) */
+   Benötigt: js/data.js (THERAPISTS, LIST_DATE)
+
+   Die Darstellungs-Funktionen (Karten, Bezirksgruppen, Filter-Chips, Schema)
+   werden auch vom Generator tools/build-verzeichnis.js verwendet. Dieser
+   schreibt das Verzeichnis zusätzlich fest in verzeichnis.html, damit
+   Suchmaschinen alle Einträge im HTML-Quelltext sehen. Im Browser wird die
+   Liste danach wie bisher per JavaScript neu (zufällig gemischt) angezeigt. */
 
 (function () {
-  const groupsEl = document.getElementById('dir-groups');
-  if (!groupsEl) return;
-
-  const searchEl = document.getElementById('dir-search');
-  const countEl  = document.getElementById('dir-count');
-  const chipsEl  = document.getElementById('dir-chips');
-  const emptyEl  = document.getElementById('dir-empty');
-  const dateEls  = document.querySelectorAll('[data-list-date]');
-
-  dateEls.forEach(function (el) { el.textContent = LIST_DATE; });
 
   /* ---------- Helpers ---------- */
   function initials(name) {
@@ -24,6 +20,11 @@
 
   function fullName(t) {
     return [t.title, t.name, t.suffix].filter(Boolean).join(' ');
+  }
+
+  function lastName(t) {
+    const parts = t.name.trim().split(/\s+/);
+    return parts[parts.length - 1] || '';
   }
 
   function telHref(phone) {
@@ -53,8 +54,9 @@
   }
 
   /* ---------- Gruppieren nach Bezirk ---------- */
-  // random=true: Bezirke UND Personen je Bezirk zufällig (für die Anzeige)
-  // random=false: nach PLZ aufsteigend sortiert (für die Filter-Chips)
+  // random=true: Bezirke UND Personen je Bezirk zufällig (für die Anzeige im Browser)
+  // random=false: nach PLZ aufsteigend, Personen alphabetisch nach Nachname
+  //               (für die Filter-Chips und das fest ins HTML geschriebene Verzeichnis)
   function buildGroups(list, random) {
     const map = {};
     list.forEach(function (t) {
@@ -73,7 +75,13 @@
       return withPlz.concat(without);
     }
 
-    // sortiert: PLZ aufsteigend, "ohne" ganz ans Ende (für Chips)
+    // neutral sortiert: PLZ aufsteigend, "ohne" ganz ans Ende, Personen nach Nachname
+    groups.forEach(function (g) {
+      g.items = g.items.slice().sort(function (a, b) {
+        return lastName(a).localeCompare(lastName(b), 'de') ||
+               a.name.localeCompare(b.name, 'de');
+      });
+    });
     return groups.sort(function (a, b) {
       if (!a.plz) return 1;
       if (!b.plz) return -1;
@@ -141,14 +149,10 @@
       '</article>';
   }
 
-  /* ---------- Gruppen rendern ---------- */
-  function render(list) {
-    const groups = buildGroups(list, true);
-    let total = 0;
+  /* ---------- Bezirksgruppen als HTML ---------- */
+  function groupsHTML(groups) {
     let html = '';
-
     groups.forEach(function (g) {
-      total += g.items.length;
       const title = g.bezirk || 'Ohne feste Praxisadresse';
       const plzBadge = g.plz ? '<span class="plz">' + g.plz + '</span>' : '';
       const cards = g.items.map(cardHTML).join('');
@@ -162,59 +166,28 @@
           '<div class="therapist-grid">' + cards + '</div>' +
         '</section>';
     });
-
-    groupsEl.innerHTML = html;
-    if (emptyEl) emptyEl.style.display = total === 0 ? 'block' : 'none';
-    if (countEl) {
-      countEl.textContent = total + (total === 1 ? ' Eintrag' : ' Einträge');
-    }
+    return html;
   }
 
-  /* ---------- Filter-Logik ---------- */
-  let activeDistrict = 'all';
-
-  function applyFilters() {
-    const q = (searchEl ? searchEl.value : '').trim().toLowerCase();
-    const filtered = THERAPISTS.filter(function (t) {
-      const matchDistrict = activeDistrict === 'all' || t.plz === activeDistrict ||
-                            (activeDistrict === 'online' && !t.plz);
-      if (!matchDistrict) return false;
-      if (!q) return true;
-      const hay = [
-        t.name, t.title, t.suffix, t.bezirk, t.plz, t.address, t.status,
-        (t.languages || []).join(' '),
-        (t.specializations || []).join(' ')
-      ].join(' ').toLowerCase();
-      return hay.indexOf(q) !== -1;
-    });
-    render(filtered);
+  function countText(total) {
+    return total + (total === 1 ? ' Eintrag' : ' Einträge');
   }
 
-  /* ---------- Chips bauen ---------- */
-  function buildChips() {
-    if (!chipsEl) return;
-    const groups = buildGroups(THERAPISTS);
+  /* ---------- Filter-Chips als HTML ---------- */
+  function chipsHTML(list) {
+    const groups = buildGroups(list, false);
     let html = '<button class="chip active" data-d="all">Alle Bezirke</button>';
     groups.forEach(function (g) {
       const val = g.plz || 'online';
       const label = g.plz ? g.plz + ' ' + g.bezirk : 'Online';
       html += '<button class="chip" data-d="' + val + '">' + label + '</button>';
     });
-    chipsEl.innerHTML = html;
-
-    chipsEl.querySelectorAll('.chip').forEach(function (c) {
-      c.addEventListener('click', function () {
-        chipsEl.querySelectorAll('.chip').forEach(function (x) { x.classList.remove('active'); });
-        c.classList.add('active');
-        activeDistrict = c.getAttribute('data-d');
-        applyFilters();
-      });
-    });
+    return html;
   }
 
   /* ---------- Schema.org für SEO ---------- */
-  function injectSchema() {
-    const items = THERAPISTS.map(function (t, i) {
+  function schemaObject(list) {
+    const items = list.map(function (t, i) {
       const node = {
         "@type": "ListItem",
         "position": i + 1,
@@ -242,15 +215,91 @@
       return node;
     });
 
-    const schema = {
+    return {
       "@context": "https://schema.org",
       "@type": "ItemList",
       "name": "POP-Therapeut:innen mit freien Therapieplätzen in Wien",
       "itemListElement": items
     };
+  }
+
+  /* ---------- Für den Generator bereitstellen ---------- */
+  globalThis.POPDir = {
+    buildGroups: buildGroups,
+    groupsHTML: groupsHTML,
+    chipsHTML: chipsHTML,
+    countText: countText,
+    schemaObject: schemaObject
+  };
+
+  /* ======================================================================
+     Ab hier: nur im Browser
+     ====================================================================== */
+  if (typeof document === 'undefined') return;
+
+  const groupsEl = document.getElementById('dir-groups');
+  if (!groupsEl) return;
+
+  const searchEl = document.getElementById('dir-search');
+  const countEl  = document.getElementById('dir-count');
+  const chipsEl  = document.getElementById('dir-chips');
+  const emptyEl  = document.getElementById('dir-empty');
+  const dateEls  = document.querySelectorAll('[data-list-date]');
+
+  dateEls.forEach(function (el) { el.textContent = LIST_DATE; });
+
+  function render(list) {
+    const groups = buildGroups(list, true);
+    let total = 0;
+    groups.forEach(function (g) { total += g.items.length; });
+
+    groupsEl.innerHTML = groupsHTML(groups);
+    if (emptyEl) emptyEl.style.display = total === 0 ? 'block' : 'none';
+    if (countEl) countEl.textContent = countText(total);
+  }
+
+  /* ---------- Filter-Logik ---------- */
+  let activeDistrict = 'all';
+
+  function applyFilters() {
+    const q = (searchEl ? searchEl.value : '').trim().toLowerCase();
+    const filtered = THERAPISTS.filter(function (t) {
+      const matchDistrict = activeDistrict === 'all' || t.plz === activeDistrict ||
+                            (activeDistrict === 'online' && !t.plz);
+      if (!matchDistrict) return false;
+      if (!q) return true;
+      const hay = [
+        t.name, t.title, t.suffix, t.bezirk, t.plz, t.address, t.status,
+        (t.languages || []).join(' '),
+        (t.specializations || []).join(' ')
+      ].join(' ').toLowerCase();
+      return hay.indexOf(q) !== -1;
+    });
+    render(filtered);
+  }
+
+  /* ---------- Chips bauen ---------- */
+  function buildChips() {
+    if (!chipsEl) return;
+    chipsEl.innerHTML = chipsHTML(THERAPISTS);
+
+    chipsEl.querySelectorAll('.chip').forEach(function (c) {
+      c.addEventListener('click', function () {
+        chipsEl.querySelectorAll('.chip').forEach(function (x) { x.classList.remove('active'); });
+        c.classList.add('active');
+        activeDistrict = c.getAttribute('data-d');
+        applyFilters();
+      });
+    });
+  }
+
+  /* ---------- Schema nur einfügen, wenn es nicht schon fest im HTML steht ---------- */
+  function injectSchema() {
+    if (document.getElementById('dir-schema')) return;
     const s = document.createElement('script');
     s.type = 'application/ld+json';
-    s.textContent = JSON.stringify(schema);
+    s.id = 'dir-schema';
+    s.textContent = JSON.stringify(schemaObject(THERAPISTS));
     document.head.appendChild(s);
   }
 

@@ -64,6 +64,24 @@ Alles passiert in **einer einzigen Datei**: `js/data.js`.
    - Einträge ohne PLZ landen automatisch unter „Ohne feste Praxisadresse".
 4. Speichern. Fertig – das Verzeichnis sortiert und gruppiert sich von selbst.
 
+### Automatische Erzeugung fürs Verzeichnis (SEO)
+
+Damit Suchmaschinen alle Einträge samt Website-Links direkt im HTML sehen,
+wird das Verzeichnis zusätzlich fest in `verzeichnis.html` geschrieben.
+Das erledigt der Generator `tools/build-verzeichnis.js`. Er aktualisiert dabei
+auch die Zahl der Therapeut:innen und der Bezirke auf der Startseite.
+
+- **Auf GitHub läuft das automatisch:** Nach jedem Upload von `js/data.js`
+  startet die Aktion „Verzeichnis erzeugen“ (Reiter *Actions*) und schreibt
+  `verzeichnis.html` und `index.html` innerhalb von ein, zwei Minuten neu.
+- **Lokal von Hand:** `node tools/build-verzeichnis.js` im Repo-Ordner ausführen.
+- Die Bereiche zwischen `<!-- BUILD:… -->` und `<!-- /BUILD:… -->` in
+  `verzeichnis.html` sowie die Zahlen mit `data-build` in `index.html`
+  nicht von Hand bearbeiten, sie werden jedes Mal überschrieben.
+- Im Browser mischt `js/directory.js` die Reihenfolge weiterhin bei jedem
+  Aufruf zufällig. Im HTML-Quelltext steht die Liste neutral nach PLZ und
+  Nachname sortiert.
+
 > Es ist keine Programmierung nötig. Wichtig ist nur: Anführungszeichen `"`
 > und Kommas `,` müssen stehen bleiben.
 
