@@ -34,7 +34,7 @@
    Stand der Liste (bitte bei Aenderung anpassen):
 ============================================================================ */
 
-const LIST_DATE = "Herbst 2026";
+const LIST_DATE = "Winter 2026";
 
 /* Gesetzliche Bezeichnung - ab 1. Oktober 2026 auf AUSB_NEU umstellen. */
 const AUSB_ALT = "in Ausbildung unter Supervision";
@@ -43,17 +43,6 @@ const AUSBILDUNG = AUSB_NEU;
 
 const THERAPISTS = [
   // ---- 1010 Innere Stadt ----
-  {
-    name: "Sandra Bär Heuer", title: "", suffix: "",
-    plz: "1010", bezirk: "Innere Stadt",
-    address: "Laurenzerberg 1/29", addressNote: "",
-    phone: "+43 699 1 968 67 27",
-    email: "sandra.baerheuer@gmail.com",
-    website: "https://www.praxis-baerheuer.at",
-    languages: ["Deutsch", "Englisch"],
-    specializations: [],
-    note: AUSBILDUNG + " · ab Mitte September 2026"
-  },
   {
     name: "Sabine Blauhut", title: "Mag.a", suffix: "",
     plz: "1010", bezirk: "Innere Stadt",
@@ -66,6 +55,17 @@ const THERAPISTS = [
     note: AUSBILDUNG
   },
   {
+    name: "Sandra Bär Heuer", title: "", suffix: "",
+    plz: "1010", bezirk: "Innere Stadt",
+    address: "Laurenzerberg 1/29", addressNote: "",
+    phone: "+43 699 1 968 67 27",
+    email: "kontakt@praxis-baerheuer.at",
+    website: "https://www.praxis-baerheuer.at",
+    languages: ["Deutsch", "Englisch"],
+    specializations: [],
+    note: AUSBILDUNG + " · ab Jänner 2027"
+  },
+  {
     name: "Laura Greber", title: "", suffix: "",
     plz: "1010", bezirk: "Innere Stadt",
     address: "Tiefer Graben 8–10/9", addressNote: "",
@@ -74,7 +74,40 @@ const THERAPISTS = [
     website: "https://www.psychotherapie-greber.at/",
     languages: ["Deutsch", "Englisch"],
     specializations: [],
-    note: AUSBILDUNG + " · ab November 2026"
+    note: AUSBILDUNG
+  },
+  {
+    name: "Lamija Muzurović", title: "Prof.", suffix: "MAS",
+    plz: "1010", bezirk: "Innere Stadt",
+    address: "Salvatorgasse 10/6/2", addressNote: "",
+    phone: "+43 1 40565 39",
+    email: "lamija@muzurovic.eu",
+    website: "https://www.muzurovic.eu",
+    languages: ["Bosnisch/Kroatisch/Serbisch", "Deutsch", "Englisch", "Russisch"],
+    specializations: ["Angst", "Depression", "somatoforme Störungen", "chronische Krankheiten", "Interkulturalität", "Traumatisierung und Belastungsstörungen"],
+    note: "ab Jänner 2027"
+  },
+  {
+    name: "Karoline Presich", title: "MMag.", suffix: "",
+    plz: "1010", bezirk: "Innere Stadt",
+    address: "Ebendorferstraße 10/6a", addressNote: "",
+    phone: "",
+    email: "contact@karolinepresich.com",
+    website: "https://www.karolinepresich.com",
+    languages: ["Deutsch", "Englisch", "Spanisch"],
+    specializations: [],
+    note: AUSBILDUNG
+  },
+  {
+    name: "Oliver Wojtech", title: "Mag.", suffix: "",
+    plz: "1010", bezirk: "Innere Stadt",
+    address: "Salvatorgasse 10/6/2", addressNote: "",
+    phone: "0664 1017023",
+    email: "praxis@wojtech.at",
+    website: "https://wojtech.at",
+    languages: ["Deutsch", "Englisch"],
+    specializations: ["Traumatherapie", "Sucht", "LGBTQIA+"],
+    note: ""
   },
   {
     name: "Carlo Zichittella", title: "Dott. Mag.", suffix: "",
@@ -87,17 +120,6 @@ const THERAPISTS = [
     specializations: [],
     note: AUSBILDUNG
   },
-  {
-    name: "Oliver Wojtech", title: "Mag.", suffix: "",
-    plz: "1010", bezirk: "Innere Stadt",
-    address: "Salvatorgasse 10/6/2", addressNote: "",
-    phone: "0664 1017023",
-    email: "praxis@wojtech.at",
-    website: "https://wojtech.at",
-    languages: [],
-    specializations: [],
-    note: ""
-  },
 
   // ---- 1020 Leopoldstadt ----
   {
@@ -107,8 +129,8 @@ const THERAPISTS = [
     phone: "+43 676 7534836",
     email: "margarethe.engelhardtkrajanek@gmail.com",
     website: "https://www.engelhardt-krajanek.at",
-    languages: [],
-    specializations: [],
+    languages: ["Deutsch", "Englisch"],
+    specializations: ["Traumatherapie", "Persönlichkeitsstörungen", "Essstörungen"],
     note: ""
   },
   {
@@ -123,15 +145,26 @@ const THERAPISTS = [
     note: AUSBILDUNG
   },
   {
-    name: "Miriam Klauser", title: "", suffix: "",
+    name: "Vera Molnar", title: "", suffix: "",
     plz: "1020", bezirk: "Leopoldstadt",
-    address: "Zwerggasse 3/3", addressNote: "",
-    phone: "0660 8365583",
-    email: "info@miriamklauser.at",
-    website: "",
+    address: "Gredlerstraße 3/8a", addressNote: "",
+    phone: "+43 664 4153164",
+    email: "kontakt@veramolnar.at",
+    website: "https://www.veramolnar.at",
     languages: ["Deutsch"],
     specializations: [],
-    note: "Psychoanalytikerin (WAP), " + AUSBILDUNG
+    note: ""
+  },
+  {
+    name: "Doris Schneeberger", title: "DDr.", suffix: "",
+    plz: "1020", bezirk: "Leopoldstadt",
+    address: "Vorgartenstraße 219/1/1", addressNote: "",
+    phone: "+43 676 421 430 5",
+    email: "office@psychotherapie-ds.com",
+    website: "https://www.psychotherapie-ds.com/",
+    languages: ["Deutsch", "Englisch"],
+    specializations: ["Erwachsene und Jugendliche", "Paartherapie", "Sexualtherapie"],
+    note: "Sitzungen auch online möglich"
   },
 
   // ---- 1030 Landstraße ----
@@ -160,6 +193,17 @@ const THERAPISTS = [
 
   // ---- 1040 Wieden ----
   {
+    name: "Stefan Artner", title: "", suffix: "BSc BSc MSc",
+    plz: "1040", bezirk: "Wieden",
+    address: "Favoritenstraße 17/2/4", addressNote: "",
+    phone: "+43 681 20357834",
+    email: "praxisartner@proton.me",
+    website: "https://www.stefan-artner.at",
+    languages: ["Deutsch", "Englisch"],
+    specializations: [],
+    note: AUSBILDUNG + " · ab Februar 2027 neue Praxis: Hernalser Hauptstraße 47/5, 1170 Wien"
+  },
+  {
     name: "Nadia Jonigkeit", title: "Mag.", suffix: "MA",
     plz: "1040", bezirk: "Wieden",
     address: "Favoritenstraße 17/2/14", addressNote: "",
@@ -171,15 +215,26 @@ const THERAPISTS = [
     note: AUSBILDUNG
   },
   {
-    name: "Ksenia Kowalczyk", title: "", suffix: "",
+    name: "Konstanze Karolyi-Vartok", title: "", suffix: "",
     plz: "1040", bezirk: "Wieden",
-    address: "Schönburgstraße 44/5", addressNote: "",
-    phone: "+43 677 648 112 55",
-    email: "kontakt@ksenia-kowalczyk.at",
+    address: "Rubensgasse 1/12", addressNote: "",
+    phone: "0677 645 72 608",
+    email: "k.karolyi.vartok@gmail.com",
     website: "",
-    languages: ["Deutsch", "Polnisch (passiv)"],
-    specializations: [],
+    languages: ["Deutsch", "Englisch"],
+    specializations: ["Jugendliche", "Erwachsene"],
     note: AUSBILDUNG
+  },
+  {
+    name: "Gabriele Königsecker", title: "Mag.a", suffix: "",
+    plz: "1040", bezirk: "Wieden",
+    address: "Schleifmühlgasse 5/10", addressNote: "",
+    phone: "+43 676 3103371",
+    email: "office@praxis-koenigsecker.at",
+    website: "https://www.praxis-koenigsecker.at",
+    languages: ["Deutsch"],
+    specializations: [],
+    note: ""
   },
 
   // ---- 1050 Margareten ----
@@ -212,20 +267,31 @@ const THERAPISTS = [
     phone: "+43 660 502 0552",
     email: "praxis@psychotherapie-gold.at",
     website: "",
-    languages: [],
+    languages: ["Deutsch", "Englisch"],
     specializations: [],
-    note: AUSBILDUNG
+    note: AUSBILDUNG + " · ab Dezember 2026"
   },
   {
     name: "Isabelle Köhler", title: "DI(fh)", suffix: "",
     plz: "1050", bezirk: "Margareten",
     address: "Kohlgasse 42/3", addressNote: "",
-    phone: "0664 751508766",
+    phone: "0664 75150876",
     email: "praxis@isabellekoehler.com",
     website: "https://www.isabellekoehler.com",
     languages: ["Deutsch", "Englisch"],
     specializations: [],
     note: AUSBILDUNG
+  },
+  {
+    name: "Markus Setznagel", title: "Mag.", suffix: "",
+    plz: "1050", bezirk: "Margareten",
+    address: "Margaretenstraße 96/3b", addressNote: "",
+    phone: "+43 660 271 58 76",
+    email: "kontakt@setznagel.com",
+    website: "https://www.setznagel.com",
+    languages: ["Deutsch"],
+    specializations: [],
+    note: AUSBILDUNG + " · ab Jänner 2027"
   },
   {
     name: "Nicole Singer", title: "Mag.a", suffix: "",
@@ -258,9 +324,9 @@ const THERAPISTS = [
     phone: "0676 5500748",
     email: "n.abuhelou@me.com",
     website: "",
-    languages: ["Deutsch", "Arabisch"],
+    languages: ["Deutsch", "Arabisch", "Englisch"],
     specializations: [],
-    note: AUSBILDUNG + " · ab 1. Oktober 2026"
+    note: AUSBILDUNG + " · ab November 2026"
   },
   {
     name: "Holger Kekeisen", title: "Mag.", suffix: "",
@@ -273,8 +339,30 @@ const THERAPISTS = [
     specializations: [],
     note: ""
   },
+  {
+    name: "Katharina Ortner", title: "MMag.", suffix: "",
+    plz: "1060", bezirk: "Mariahilf",
+    address: "Stumpergasse 11/12", addressNote: "",
+    phone: "0664 93242885",
+    email: "ortner@psychotherapie-mariahilf.at",
+    website: "",
+    languages: ["Deutsch"],
+    specializations: [],
+    note: AUSBILDUNG
+  },
 
   // ---- 1070 Neubau ----
+  {
+    name: "Maaike Kohler", title: "", suffix: "",
+    plz: "1070", bezirk: "Neubau",
+    address: "Zollergasse 15/8", addressNote: "",
+    phone: "+43 681 844 48 815",
+    email: "office@maaikekohler.at",
+    website: "https://www.maaikekohler.at",
+    languages: ["Deutsch", "Niederländisch", "Englisch"],
+    specializations: [],
+    note: AUSBILDUNG + " · ein Platz am Vormittag"
+  },
   {
     name: "Andreas Lehrner", title: "", suffix: "",
     plz: "1070", bezirk: "Neubau",
@@ -300,6 +388,17 @@ const THERAPISTS = [
 
   // ---- 1080 Josefstadt ----
   {
+    name: "Katrin Anzirk", title: "", suffix: "",
+    plz: "1080", bezirk: "Josefstadt",
+    address: "Wickenburggasse 15", addressNote: "",
+    phone: "0650 2700580",
+    email: "katrin.anzirk@gmx.at",
+    website: "https://www.psychologie-anzirk.at",
+    languages: [],
+    specializations: [],
+    note: AUSBILDUNG
+  },
+  {
     name: "Bianca Arthofer", title: "", suffix: "",
     plz: "1080", bezirk: "Josefstadt",
     address: "Schlösselgasse 11/22", addressNote: "",
@@ -319,10 +418,21 @@ const THERAPISTS = [
     website: "",
     languages: [],
     specializations: [],
-    note: AUSBILDUNG + " · ab November 2026"
+    note: AUSBILDUNG + " · ab Jänner 2027"
   },
 
   // ---- 1090 Alsergrund ----
+  {
+    name: "Karin Feichtinger", title: "Mag.", suffix: "",
+    plz: "1090", bezirk: "Alsergrund",
+    address: "Gilgegasse 14/4", addressNote: "",
+    phone: "+43 660 3716770",
+    email: "karinfeichtinger@gmx.at",
+    website: "",
+    languages: [],
+    specializations: [],
+    note: ""
+  },
   {
     name: "Philip Halper", title: "MMag.", suffix: "",
     plz: "1090", bezirk: "Alsergrund",
@@ -358,8 +468,30 @@ const THERAPISTS = [
     specializations: [],
     note: AUSBILDUNG
   },
+  {
+    name: "Matthias Monreal", title: "", suffix: "MSc",
+    plz: "1100", bezirk: "Favoriten",
+    address: "Alfred-Adler-Straße 12", addressNote: "",
+    phone: "0676 32 32 882",
+    email: "praxis@matthiasmonreal.com",
+    website: "https://www.matthiasmonreal.com",
+    languages: ["Deutsch", "Englisch"],
+    specializations: [],
+    note: AUSBILDUNG + " · voraussichtlich ab Jänner 2027 · zweite Praxis in Innsbruck"
+  },
 
   // ---- 1130 Hietzing ----
+  {
+    name: "Susanna Degenfeld-Schonburg", title: "Mag.", suffix: "",
+    plz: "1130", bezirk: "Hietzing",
+    address: "Maxingstraße 4b/11", addressNote: "",
+    phone: "0664 5716357",
+    email: "susanna.degenfeld@a1.net",
+    website: "",
+    languages: [],
+    specializations: [],
+    note: ""
+  },
   {
     name: "Martina Kubacek", title: "Mag.", suffix: "",
     plz: "1130", bezirk: "Hietzing",
@@ -383,28 +515,6 @@ const THERAPISTS = [
     languages: ["Deutsch"],
     specializations: [],
     note: ""
-  },
-  {
-    name: "Nadine Lampersberger", title: "Mag.", suffix: "",
-    plz: "1140", bezirk: "Penzing",
-    address: "Penzinger Straße 40/5", addressNote: "",
-    phone: "0676 5553568",
-    email: "praxis.lampersberger@posteo.at",
-    website: "https://www.praxislampersberger.at/",
-    languages: ["Deutsch", "Englisch"],
-    specializations: [],
-    note: AUSBILDUNG
-  },
-  {
-    name: "Stefanie Pichler-Gnilsen", title: "", suffix: "MA",
-    plz: "1140", bezirk: "Penzing",
-    address: "Breitenseer Straße 20–22/12", addressNote: "",
-    phone: "0676 703 4632",
-    email: "praxis@pichler-gnilsen.at",
-    website: "",
-    languages: [],
-    specializations: [],
-    note: AUSBILDUNG
   },
   {
     name: "Eva Pollhammer", title: "", suffix: "",
@@ -440,19 +550,6 @@ const THERAPISTS = [
     languages: ["Deutsch"],
     specializations: ["Erwachsene", "Jugendliche"],
     note: AUSBILDUNG
-  },
-
-  // ---- 1160 Ottakring ----
-  {
-    name: "Christa Salvenmoser", title: "Mag.", suffix: "",
-    plz: "1160", bezirk: "Ottakring",
-    address: "Erdbrustgasse 84/3", addressNote: "",
-    phone: "0664 413 95 94",
-    email: "praxis@christa-salvenmoser.at",
-    website: "",
-    languages: ["Deutsch", "Englisch"],
-    specializations: ["Persönlichkeitsstörungen", "Essstörungen", "Psychosomatik"],
-    note: ""
   },
 
   // ---- 1170 Hernals ----
@@ -509,11 +606,37 @@ const THERAPISTS = [
     plz: "1200", bezirk: "Brigittenau",
     address: "Leithastraße 22/20", addressNote: "",
     phone: "+43 670 652 35 01",
-    email: "praxis@hanna-loeschl.at",
+    email: "praxis@hanna-habitzl.at",
     website: "https://www.hanna-habitzl.at",
     languages: ["Deutsch"],
-    specializations: ["Kinder- und Jugendtherapie", "Eltern-Säugling/Kleinkind-Kurztherapien"],
+    specializations: ["Kinder- und Jugendtherapie"],
     note: AUSBILDUNG
+  },
+
+  // ---- 1220 Donaustadt ----
+  {
+    name: "Katharina Skoumal-Peterbauer", title: "", suffix: "MA",
+    plz: "1220", bezirk: "Donaustadt",
+    address: "Wimpffengasse 1", addressNote: "",
+    phone: "+43 677 61996628",
+    email: "ksp.therapie@gmail.com",
+    website: "https://www.ksp-therapie.at",
+    languages: ["Deutsch", "Englisch"],
+    specializations: [],
+    note: AUSBILDUNG + " · ab 15. Februar 2027"
+  },
+
+  // ---- 1230 Liesing ----
+  {
+    name: "Tanja Amann-Halder", title: "", suffix: "",
+    plz: "1230", bezirk: "Liesing",
+    address: "Haeckelstraße 1/16", addressNote: "",
+    phone: "+43 676 522 89 69",
+    email: "tanja.amann@aon.at",
+    website: "https://www.praxisamannhalder.at",
+    languages: ["Deutsch"],
+    specializations: [],
+    note: ""
   },
 
   // ---- 2340 Maria Enzersdorf (Niederösterreich) ----
@@ -526,6 +649,34 @@ const THERAPISTS = [
     email: "katharina@psychotherapie-stachurski.at",
     website: "https://www.psychotherapie-stachurski.at",
     languages: [],
+    specializations: [],
+    note: AUSBILDUNG
+  },
+
+  // ---- 2344 Maria Enzersdorf (Niederösterreich) ----
+  {
+    name: "Gisela Reimoser", title: "Mag.a", suffix: "MA",
+    plz: "2344", bezirk: "Maria Enzersdorf",
+    ort: "Maria Enzersdorf",
+    address: "Pachergasse 16/16", addressNote: "",
+    phone: "0664 735 421 72",
+    email: "gisela.reimoser@gmx.at",
+    website: "",
+    languages: ["Deutsch", "Englisch"],
+    specializations: [],
+    note: ""
+  },
+
+  // ---- 2540 Bad Vöslau (Niederösterreich) ----
+  {
+    name: "Kriemhild Leitner", title: "Mag.a", suffix: "",
+    plz: "2540", bezirk: "Bad Vöslau",
+    ort: "Bad Vöslau",
+    address: "Hochstraße 23", addressNote: "1. Stock, Tür 13",
+    phone: "0664 1537525",
+    email: "kriemhild.leitner@gmx.at",
+    website: "",
+    languages: ["Deutsch", "Englisch"],
     specializations: [],
     note: AUSBILDUNG
   },
